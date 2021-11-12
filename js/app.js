@@ -28,7 +28,33 @@ function getResult() {
   let str = output.textContent;
   let arr = str.split(' ');
   console.log(arr);
-  return arr;
+  if (arr.indexOf('*') > 0) {
+    let i = arr.indexOf('*');
+    console.log(i);
+    arr[i - 1] = arr[i - 1] * arr[i + 1];
+    arr[i - 1] = arr[i - 1].toString();
+    console.log(arr);
+    arr.splice(i, 2);
+    console.log(arr);
+  }
+  if (arr.indexOf('+') > 0) {
+    let i = arr.indexOf('+');
+    console.log(i);
+    arr[i - 1] = +arr[i - 1] + +arr[i + 1];
+    arr[i - 1] = arr[i - 1].toString();
+    console.log(arr);
+    arr.splice(i, 2);
+    console.log(arr);
+  }
+  if (arr.indexOf('-') > 0) {
+    let i = arr.indexOf('-');
+    console.log(i);
+    arr[i - 1] = +arr[i - 1] - +arr[i + 1];
+    arr[i - 1] = arr[i - 1].toString();
+    console.log(arr);
+    arr.splice(i, 2);
+    console.log(arr);
+  }
 }
 
 // AC.addEventListener('click', (event) => {
@@ -62,7 +88,3 @@ function getResult() {
 //   let result = eval(output.textContent);
 //   output.textContent = result;
 // });
-
-console.log(output.textContent);
-console.log(funcs);
-console.log(nums);
