@@ -9,7 +9,7 @@ const L = document.querySelector('.clear');
 main.addEventListener('click', (event) => {
   if (event.target.classList == 'func') {
     console.log('_');
-    output.textContent += event.target.textContent;
+    output.textContent += ' ' + event.target.textContent + ' ';
   } else if (event.target.classList == 'num') {
     output.textContent += event.target.textContent;
   } else if (event.target.classList == 'clear') {
@@ -19,10 +19,18 @@ main.addEventListener('click', (event) => {
     );
   } else if (event.target.classList == 'clearAll') {
     output.textContent = '';
+  } else if (event.target.classList == 'do') {
+    getResult();
   }
 });
 
-function getResult() {}
+function getResult() {
+  let str = output.textContent;
+  let arr = str.split(' ');
+  console.log(arr);
+  return arr;
+}
+
 // AC.addEventListener('click', (event) => {
 //   console.log('clearAll');
 //   output.textContent = '';
