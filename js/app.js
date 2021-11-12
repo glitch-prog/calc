@@ -23,12 +23,28 @@ main.addEventListener('click', (event) => {
     getResult();
   }
 });
-
+// if (arr.indexOf('*') > 0) {
+//     let i = arr.indexOf('*');
+//     console.log(i);
+//     arr[i - 1] = arr[i - 1] * arr[i + 1];
+//     arr[i - 1] = arr[i - 1].toString();
+//     console.log(arr);
+//     arr.splice(i, 2);
+//     console.log(arr);
+//     // output.textContent = arr.join();
+//   }
 function getResult() {
+  let counter = 0;
   let str = output.textContent;
   let arr = str.split(' ');
   console.log(arr);
-  if (arr.indexOf('*') > 0) {
+  arr.forEach((el) => {
+    if (el == '*') {
+      counter++;
+      console.log(counter);
+    }
+  });
+  for (let i = 0; i < counter; i++) {
     let i = arr.indexOf('*');
     console.log(i);
     arr[i - 1] = arr[i - 1] * arr[i + 1];
@@ -45,6 +61,7 @@ function getResult() {
     console.log(arr);
     arr.splice(i, 2);
     console.log(arr);
+    // output.textContent = arr.join();
   }
   if (arr.indexOf('-') > 0) {
     let i = arr.indexOf('-');
@@ -55,6 +72,7 @@ function getResult() {
     arr.splice(i, 2);
     console.log(arr);
   }
+  output.textContent = arr.join();
 }
 
 // AC.addEventListener('click', (event) => {
