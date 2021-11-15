@@ -166,13 +166,19 @@ function store() {
     if (event.target.textContent == 'MS') {
       localStorage.setItem('value', output.textContent);
     } else if (event.target.textContent == 'M+') {
-      let value = localStorage.getItem('value');
-      console.log(value);
+      let valueP = localStorage.getItem('value');
+      console.log(valueP);
       console.log(output.textContent);
-      value = +value + +output.textContent;
-      console.log(value);
+      valueP = +valueP + +output.textContent;
+      console.log(valueP);
 
-      localStorage.setItem('value', value);
+      localStorage.setItem('value', valueP);
+    } else if (event.target.textContent == 'MC') {
+      localStorage.removeItem('value');
+    } else if (event.target.textContent == 'M-') {
+      let valueM = localStorage.getItem('value');
+      valueM = valueM - +output.textContent;
+      localStorage.setItem('value', valueM);
     }
   });
 }
