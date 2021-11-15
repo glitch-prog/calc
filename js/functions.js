@@ -179,6 +179,8 @@ function store() {
       let valueM = localStorage.getItem('value');
       valueM = valueM - +output.textContent;
       localStorage.setItem('value', valueM);
+    } else if (event.target.textContent == 'MR') {
+      output.textContent = localStorage.getItem('value');
     }
   });
 }
