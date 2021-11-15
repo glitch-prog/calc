@@ -12,7 +12,7 @@ main.addEventListener('click', (event) => {
       output.textContent.length - 1
     );
   } else if (event.target.classList == 'sp__func') {
-    output.textContent += event.target.textContent;
+    output.textContent += ' ' + event.target.textContent + ' ';
   } else if (event.target.classList == 'clearAll') {
     output.textContent = '';
   } else if (event.target.classList == 'do') {

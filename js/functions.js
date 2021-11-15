@@ -5,6 +5,7 @@ function getResult() {
   let counter1 = 0;
   let counter2 = 0;
   let counter3 = 0;
+  let counter4 = 0;
   let str = output.textContent;
   let arr = str.split(' ');
   console.log(arr);
@@ -18,9 +19,20 @@ function getResult() {
       counter2++;
     } else if (el == '/') {
       counter3++;
+    } else if (el == '!') {
+      counter4++;
     }
   });
 
+  for (let i = 0; i < counter4; i++) {
+    let f = arr.indexOf('!');
+    console.log(f);
+    arr[f + 1] = factorial(arr[f + 1]);
+    arr[f + 1] = arr[f + 1].toString();
+    console.log(arr);
+    arr.splice(f - 1, 2);
+    console.log(arr);
+  }
   for (let i = 0; i < counter3; i++) {
     let l = arr.indexOf('/');
     console.log(i);
@@ -61,6 +73,10 @@ function getResult() {
   }
 
   output.textContent = arr.join();
+}
+
+function factorial(n) {
+  return n ? n * factorial(n - 1) : 1;
 }
 
 export { getResult };
