@@ -1,5 +1,5 @@
 import { main, output, spFuncs } from './variables.js';
-import { getResult } from './functions.js';
+import { getResult, store } from './functions.js';
 
 main.addEventListener('click', (event) => {
   if (event.target.classList == 'func') {
@@ -17,5 +17,8 @@ main.addEventListener('click', (event) => {
     output.textContent = '';
   } else if (event.target.classList == 'do') {
     getResult();
+  } else if (event.target.classList == 'storage__item') {
+    store();
+    
   }
 });

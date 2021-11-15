@@ -1,4 +1,14 @@
-import { main, funcs, nums, output, rez, AC, L, spFuncs } from './variables.js';
+import {
+  main,
+  funcs,
+  nums,
+  output,
+  rez,
+  AC,
+  L,
+  spFuncs,
+  storage,
+} from './variables.js';
 
 function getResult() {
   let counter = 0;
@@ -34,6 +44,16 @@ function getResult() {
       counter7++;
     }
   });
+
+  for (let i = 0; i < counter7; i++) {
+    console.log(w);
+    let x = arr.indexOf('2√');
+    arr[x + 1] = sqrt(arr[x + 1]);
+    arr[x + 1] = arr[x + 1].toString();
+    console.log(arr);
+    arr.splice(x, 2);
+    console.log(arr);
+  }
 
   for (let i = 0; i < counter7; i++) {
     let w = arr.indexOf('^');
@@ -137,4 +157,24 @@ function inN(n, m) {
   return result;
 }
 
-export { getResult };
+// function sqrt(n) {
+//   function
+// }
+
+function store() {
+  storage.addEventListener('click', (event) => {
+    if (event.target.textContent == 'MS') {
+      localStorage.setItem('value', output.textContent);
+    } else if (event.target.textContent == 'M+') {
+      let value = localStorage.getItem('value');
+      console.log(value);
+      console.log(output.textContent);
+      value = +value + +output.textContent;
+      console.log(value);
+
+      localStorage.setItem('value', value);
+    }
+  });
+}
+
+export { getResult, store };
