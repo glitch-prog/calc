@@ -1,4 +1,4 @@
-import { main, funcs, nums, output, rez, AC, L } from './variables.js';
+import { main, funcs, nums, output, rez, AC, L ,spFuncs} from './variables.js';
 
 function getResult() {
   let counter = 0;

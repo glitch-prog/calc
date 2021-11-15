@@ -1,4 +1,4 @@
-import { main, funcs, nums, output, rez, AC, L } from './variables.js';
+import { main, output } from './variables.js';
 import { getResult } from './functions.js';
 
 main.addEventListener('click', (event) => {
