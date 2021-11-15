@@ -1,4 +1,4 @@
-import { main, funcs, nums, output, rez, AC, L ,spFuncs} from './variables.js';
+import { main, funcs, nums, output, rez, AC, L, spFuncs } from './variables.js';
 
 function getResult() {
   let counter = 0;
@@ -21,15 +21,6 @@ function getResult() {
     }
   });
 
-  for (let i = 0; i < counter; i++) {
-    let j = arr.indexOf('*');
-    arr[j - 1] = arr[j - 1] * arr[j + 1];
-    arr[j - 1] = arr[j - 1].toString();
-    console.log(arr);
-    arr.splice(j, 2);
-    console.log(arr);
-  }
-
   for (let i = 0; i < counter3; i++) {
     let l = arr.indexOf('/');
     console.log(i);
@@ -40,13 +31,12 @@ function getResult() {
     console.log(arr);
   }
 
-  for (let i = 0; i < counter1; i++) {
-    let y = arr.indexOf('+');
-    console.log(i);
-    arr[y - 1] = +arr[y - 1] + +arr[y + 1];
-    arr[y - 1] = arr[y - 1].toString();
+  for (let i = 0; i < counter; i++) {
+    let j = arr.indexOf('*');
+    arr[j - 1] = arr[j - 1] * arr[j + 1];
+    arr[j - 1] = arr[j - 1].toString();
     console.log(arr);
-    arr.splice(y, 2);
+    arr.splice(j, 2);
     console.log(arr);
   }
 
@@ -57,6 +47,16 @@ function getResult() {
     arr[i - 1] = arr[i - 1].toString();
     console.log(arr);
     arr.splice(i, 2);
+    console.log(arr);
+  }
+
+  for (let i = 0; i < counter1; i++) {
+    let y = arr.indexOf('+');
+    console.log(i);
+    arr[y - 1] = +arr[y - 1] + +arr[y + 1];
+    arr[y - 1] = arr[y - 1].toString();
+    console.log(arr);
+    arr.splice(y, 2);
     console.log(arr);
   }
 

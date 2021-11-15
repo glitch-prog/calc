@@ -5,6 +5,6 @@ const output = document.querySelector('p');
 const rez = document.querySelector('.do');
 const AC = document.querySelector('.clearAll');
 const L = document.querySelector('.clear');
-const spFuncs = document.querySelector('.speecial__funcs');
+const spFuncs = document.querySelector('.special__funcs');
 
-export { main, funcs, nums, output, rez, AC, L };
+export { main, funcs, nums, output, rez, AC, L, spFuncs };
