@@ -18,7 +18,6 @@ main.addEventListener('click', (event) => {
   } else if (event.target.classList == 'do') {
     getResult();
   } else if (event.target.classList == 'storage__item') {
-    store();
-    
+    store(event);
   }
 });

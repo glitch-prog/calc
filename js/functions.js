@@ -161,28 +161,35 @@ function inN(n, m) {
 //   function
 // }
 
-function store() {
-  storage.addEventListener('click', (event) => {
-    if (event.target.textContent == 'MS') {
-      localStorage.setItem('value', output.textContent);
-    } else if (event.target.textContent == 'M+') {
-      let valueP = localStorage.getItem('value');
-      console.log(valueP);
-      console.log(output.textContent);
-      valueP = +valueP + +output.textContent;
-      console.log(valueP);
+function store(event) {
+  if (event.target.textContent == 'MS') {
+    let value = output.textContent;
+    localStorage.setItem('value', value);
+  } else if (event.target.textContent == 'MC') {
+    deleteStore('value');
+  } else if (event.target.textContent == 'M+') {
+    increaseStore('value');
+  } else if (event.target.textContent == 'M-') {
+    reduceStore('value');
+  }
+}
 
-      localStorage.setItem('value', valueP);
-    } else if (event.target.textContent == 'MC') {
-      localStorage.removeItem('value');
-    } else if (event.target.textContent == 'M-') {
-      let valueM = localStorage.getItem('value');
-      valueM = valueM - +output.textContent;
-      localStorage.setItem('value', valueM);
-    } else if (event.target.textContent == 'MR') {
-      output.textContent = localStorage.getItem('value');
-    }
-  });
+function deleteStore(something) {
+  localStorage.removeItem(something);
+}
+
+function increaseStore(something) {
+  let valueP = localStorage.getItem(something);
+  console.log(valueP);
+  console.log(output.textContent);
+
+  localStorage.setItem(something, +valueP + +output.textContent);
+}
+
+function reduceStore(something) {
+  let valueM = localStorage.getItem(something);
+  valueM = valueM - +output.textContent;
+  localStorage.setItem(something, valueM);
 }
 
 export { getResult, store };
