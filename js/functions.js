@@ -21,6 +21,7 @@ function getResult() {
   let counter7 = 0;
   let counter8 = 0;
   let counter9 = 0;
+  let counter10 = 0;
   let str = output.textContent;
   let arr = str.split(' ');
   console.log(arr);
@@ -46,8 +47,20 @@ function getResult() {
       counter8++;
     } else if (el == '3√') {
       counter9++;
+    } else if (el == '√') {
+      counter10++;
     }
   });
+
+  for (let i = 0; i < counter10; i++) {
+    let f = arr.indexOf('√');
+    arr[f + 1] = anyRoot(arr[f + 1], arr[f - 1]);
+    console.log(arr[f + 1]);
+    arr[f + 1] = arr[f + 1].toString();
+    console.log(arr);
+    arr.splice(f - 1, f + 1);
+    console.log(arr);
+  }
 
   for (let i = 0; i < counter9; i++) {
     let f = arr.indexOf('3√');
@@ -179,6 +192,10 @@ function sqrt(n) {
 function cbrt(n) {
   let res = 0;
   return (res = Math.cbrt(n));
+}
+
+function anyRoot(n, root) {
+  return Math.pow(n, 1 / root);
 }
 
 function store(event) {
