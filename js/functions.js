@@ -22,6 +22,9 @@ function getResult() {
   let counter8 = 0;
   let counter9 = 0;
   let counter10 = 0;
+  let counter11 = 0;
+  let counter12 = 0;
+  let counter13 = 0;
   let str = output.textContent;
   let arr = str.split(' ');
   console.log(arr);
@@ -49,8 +52,34 @@ function getResult() {
       counter9++;
     } else if (el == '√') {
       counter10++;
+    } else if (el == '1/') {
+      counter11++;
+    } else if (el == '%') {
+      counter12++;
+    } else if (el == '+/-') {
+      counter13++;
     }
   });
+
+  for (let i = 0; i < counter12; i++) {
+    let v = arr.indexOf('%');
+    arr[v - 1] = percent(arr[v - 1]);
+    console.log(arr[v - 1]);
+    arr[v - 1] = arr[v - 1].toString();
+    console.log(arr);
+    arr.splice(v, 2);
+    console.log(arr);
+  }
+
+  for (let i = 0; i < counter11; i++) {
+    let b = arr.indexOf('1/');
+    arr[b + 1] = back(arr[b + 1]);
+    console.log(arr[b + 1]);
+    arr[b + 1] = arr[b + 1].toString();
+    console.log(arr);
+    arr.splice(b - 1, 2);
+    console.log(arr);
+  }
 
   for (let i = 0; i < counter10; i++) {
     let f = arr.indexOf('√');
@@ -58,17 +87,18 @@ function getResult() {
     console.log(arr[f + 1]);
     arr[f + 1] = arr[f + 1].toString();
     console.log(arr);
-    arr.splice(f - 1, f + 1);
+    arr.splice(f - 1, 2);
     console.log(arr);
   }
 
   for (let i = 0; i < counter9; i++) {
     let f = arr.indexOf('3√');
+    console.log(f);
     arr[f + 1] = cbrt(arr[f + 1]);
-    console.log(arr[f + 1]);
+    // console.log(arr[f + 1]);
     arr[f + 1] = arr[f + 1].toString();
     console.log(arr);
-    arr.splice(f - 1, f + 1);
+    arr.splice(f - 1, 2);
     console.log(arr);
   }
 
@@ -78,7 +108,7 @@ function getResult() {
     console.log(arr[x + 1]);
     arr[x + 1] = arr[x + 1].toString();
     console.log(arr);
-    arr.splice(x - 1, x + 1);
+    arr.splice(x - 1, 2);
     console.log(arr);
   }
 
@@ -161,7 +191,25 @@ function getResult() {
     console.log(arr);
   }
 
+  for (let i = 0; i < counter13; i++) {
+    let y = arr.indexOf('+/-');
+    console.log(i);
+    arr[y - 1] = +arr[y - 1] + +arr[y + 1];
+    arr[y - 1] = arr[y - 1].toString();
+    console.log(arr);
+    arr.splice(y, 2);
+    console.log(arr);
+  }
+
   output.textContent = arr.join();
+}
+
+function percent(n) {
+  return n / 100;
+}
+
+function back(n) {
+  return 1 / n;
 }
 
 function factorial(n) {
@@ -208,6 +256,8 @@ function store(event) {
     increaseStore('value');
   } else if (event.target.textContent == 'M-') {
     reduceStore('value');
+  } else if (event.target.textContent == 'MR') {
+    output.textContent = localStorage.getItem('value');
   }
 }
 
