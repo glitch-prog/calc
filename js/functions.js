@@ -42,16 +42,30 @@ function getResult() {
       counter6++;
     } else if (el == '^') {
       counter7++;
+    } else if (el == '2√') {
+      counter8++;
+    } else if (el == '3√') {
+      counter9++;
     }
   });
 
-  for (let i = 0; i < counter7; i++) {
-    console.log(w);
+  for (let i = 0; i < counter9; i++) {
+    let f = arr.indexOf('3√');
+    arr[f + 1] = cbrt(arr[f + 1]);
+    console.log(arr[f + 1]);
+    arr[f + 1] = arr[f + 1].toString();
+    console.log(arr);
+    arr.splice(f - 1, f + 1);
+    console.log(arr);
+  }
+
+  for (let i = 0; i < counter8; i++) {
     let x = arr.indexOf('2√');
     arr[x + 1] = sqrt(arr[x + 1]);
+    console.log(arr[x + 1]);
     arr[x + 1] = arr[x + 1].toString();
     console.log(arr);
-    arr.splice(x, 2);
+    arr.splice(x - 1, x + 1);
     console.log(arr);
   }
 
@@ -157,9 +171,15 @@ function inN(n, m) {
   return result;
 }
 
-// function sqrt(n) {
-//   function
-// }
+function sqrt(n) {
+  let res1 = 0;
+  return (res1 = Math.sqrt(n));
+}
+
+function cbrt(n) {
+  let res = 0;
+  return (res = Math.cbrt(n));
+}
 
 function store(event) {
   if (event.target.textContent == 'MS') {
