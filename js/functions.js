@@ -25,6 +25,7 @@ function getResult() {
   let counter11 = 0;
   let counter12 = 0;
   let counter13 = 0;
+  let counter14 = 0;
   let str = output.textContent;
   let arr = str.split(' ');
   console.log(arr);
@@ -58,8 +59,20 @@ function getResult() {
       counter12++;
     } else if (el == '+/-') {
       counter13++;
+    } else if (el == '10^') {
+      counter14++;
     }
   });
+
+  for (let i = 0; i < counter14; i++) {
+    let v = arr.indexOf('10^');
+    arr[v - 1] = tenIn(arr[v + 1]);
+    console.log(arr[v - 1]);
+    arr[v - 1] = arr[v - 1].toString();
+    console.log(arr);
+    arr.splice(v, 2);
+    console.log(arr);
+  }
 
   for (let i = 0; i < counter12; i++) {
     let v = arr.indexOf('%');
@@ -181,6 +194,13 @@ function getResult() {
     console.log(arr);
   }
 
+  for (let i = 0; i < counter13; i++) {
+    let p = arr.indexOf('+/-');
+    arr[p + 1] = oppositeNum(arr[p + 1]);
+    arr[p + 1] = arr[p + 1].toString();
+    arr.splice(p - 1, 2);
+  }
+
   for (let i = 0; i < counter1; i++) {
     let y = arr.indexOf('+');
     console.log(i);
@@ -191,17 +211,30 @@ function getResult() {
     console.log(arr);
   }
 
-  for (let i = 0; i < counter13; i++) {
-    let y = arr.indexOf('+/-');
-    console.log(i);
-    arr[y - 1] = +arr[y - 1] + +arr[y + 1];
-    arr[y - 1] = arr[y - 1].toString();
-    console.log(arr);
-    arr.splice(y, 2);
-    console.log(arr);
-  }
+  // for (let i = 0; i < counter13; i++) {
+  //   let y = arr.indexOf('+/-');
+  //   console.log(i);
+  //   arr[y - 1] = +arr[y - 1] + +arr[y + 1];
+  //   arr[y - 1] = arr[y - 1].toString();
+  //   console.log(arr);
+  //   arr.splice(y, 2);
+  //   console.log(arr);
+  // }
 
   output.textContent = arr.join();
+}
+
+function oppositeNum(n) {
+  return (n *= -1);
+}
+
+function tenIn(n) {
+  let tenInN = 10;
+  for (let i = 1; i < n; i++) {
+    tenInN *= 10;
+    console.log(tenInN);
+  }
+  return tenInN;
 }
 
 function percent(n) {
