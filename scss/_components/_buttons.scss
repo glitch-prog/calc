@@ -1,4 +1,25 @@
 button {
   width: 140px;
+  height: 140px;
   margin: 0;
+  font-size: 30px;
+  background: chocolate;
+  color: #fff;
+}
+
+button:active {
+  background: coral;
+}
+
+p {
+  padding-left: 20px;
+  font-size: 30px;
+}
+
+.do {
+  background: #e2d;
+}
+
+.do:active {
+  background: #129;
 }
