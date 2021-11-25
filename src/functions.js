@@ -256,19 +256,15 @@ function factorial(n) {
 }
 
 function sqr(n) {
-  return n ? n * n : 1;
+  return n ? n ** 2 : 1;
 }
 
 function cube(n) {
-  return n ? n * n * n : 1;
+  return n ? n ** 3 : 1;
 }
 
 function inN(n, m) {
-  let result = 1;
-  for (let i = 0; i < m; i++) {
-    result *= n;
-  }
-  return result;
+  return n ? n ** m : 1;
 }
 
 function sqrt(n) {
