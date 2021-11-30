@@ -7,18 +7,23 @@ import {
   output,
   spFuncs,
   wrap,
+  rez,
 } from './variables.js';
-import { getResult, store, changeTheme } from './functions.js';
+import {
+  getResult,
+  store,
+  changeTheme,
+  clear,
+  clearAll,
+  
+} from './functions.js';
 
 AC.addEventListener('click', (event) => {
-  output.textContent = '';
+  clearAll();
 });
 
 L.addEventListener('click', (event) => {
-  output.textContent = output.textContent.slice(
-    0,
-    output.textContent.length - 1
-  );
+  clear();
 });
 
 wrap.addEventListener('click', (event) => {
@@ -29,6 +34,8 @@ nums.addEventListener('click', (event) => {
   output.textContent += event.target.textContent;
 });
 
-// btnTheme.addEventListener('click', () => {
-//   changeTheme();
-// });
+rez.addEventListener('click', (event) => {
+  getResult();
+});
+
+
