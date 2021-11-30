@@ -1,4 +1,4 @@
-import { getResult } from './functions.js';
+import { getResult, factorial } from './functions.js';
 import {
   main,
   funcs,
@@ -23,7 +23,7 @@ class Calculator {
 
   executeCommand(command) {
     this.previousOperand = command.execute(this.previousOperand);
-    this.history.push(command);
+    this.currentOperand = this.history.push(command);
   }
 
   undoCommand() {
@@ -116,6 +116,134 @@ class CbrtCommand {
   }
 }
 
+class AnyRootCommand {
+  constructor(valueToSubstract, value) {
+    this.valueToSubstract = valueToSubstract;
+    this.value = value;
+  }
+
+  execute(currentValue) {
+    return (currentValue = Math.pow(this.valueToSubstract, 1 / this.value));
+  }
+
+  undo(currentValue) {
+    return (currentValue = this.valueToSubstract);
+  }
+}
+
+class PowCommand {
+  constructor(valueToSubstract, value) {
+    this.valueToSubstract = valueToSubstract;
+    this.value = value;
+  }
+
+  execute(currentValue) {
+    return (currentValue = this.valueToSubstract ** this.value);
+  }
+
+  undo(currentValue) {
+    return (currentValue = this.valueToSubstract);
+  }
+}
+
+class TenInPowCommand {
+  constructor(valueToSubstract) {
+    this.valueToSubstract = valueToSubstract;
+  }
+
+  execute(currentValue) {
+    return (currentValue = 10 ** this.valueToSubstract);
+  }
+
+  undo(currentValue) {
+    return (currentValue = this.valueToSubstract);
+  }
+}
+
+class SqrCommand {
+  constructor(valueToSubstract) {
+    this.valueToSubstract = valueToSubstract;
+  }
+
+  execute(currentValue) {
+    return (currentValue = this.valueToSubstract ** 2);
+  }
+
+  undo(currentValue) {
+    return (currentValue = this.valueToSubstract);
+  }
+}
+
+class CbCommand {
+  constructor(valueToSubstract) {
+    this.valueToSubstract = valueToSubstract;
+  }
+
+  execute(currentValue) {
+    return (currentValue = this.valueToSubstract ** 3);
+  }
+
+  undo(currentValue) {
+    return (currentValue = this.valueToSubstract);
+  }
+}
+
+class PercentCommand {
+  constructor(valueToSubstract) {
+    this.valueToSubstract = valueToSubstract;
+  }
+
+  execute(currentValue) {
+    return (currentValue = this.valueToSubstract / 100);
+  }
+
+  undo(currentValue) {
+    return (currentValue = this.valueToSubstract);
+  }
+}
+
+class AgCommand {
+  constructor(valueToSubstract) {
+    this.valueToSubstract = valueToSubstract;
+  }
+
+  execute(currentValue) {
+    return (currentValue = this.valueToSubstract * -1);
+  }
+
+  undo(currentValue) {
+    return (currentValue = this.valueToSubstract);
+  }
+}
+
+class DivideOneCommand {
+  constructor(valueToSubstract) {
+    this.valueToSubstract = valueToSubstract;
+  }
+
+  execute(currentValue) {
+    return (currentValue = 1 / this.valueToSubstract);
+  }
+
+  undo(currentValue) {
+    return (currentValue = this.valueToSubstract);
+  }
+}
+
+class FactCommand {
+  constructor(valueToSubstract) {
+    this.valueToSubstract = valueToSubstract;
+  }
+
+  execute(currentValue) {
+    return (currentValue = factorial(this.valueToSubstract));
+  }
+
+  undo(currentValue) {
+    return (currentValue = this.valueToSubstract);
+  }
+}
+
 export {
   Calculator,
   AddCommand,
@@ -124,4 +252,13 @@ export {
   DivideCommand,
   SqrtCommand,
   CbrtCommand,
+  AnyRootCommand,
+  PowCommand,
+  SqrCommand,
+  CbCommand,
+  TenInPowCommand,
+  PercentCommand,
+  FactCommand,
+  DivideOneCommand,
+  AgCommand
 };
