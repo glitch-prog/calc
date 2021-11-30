@@ -88,10 +88,40 @@ class MultiplyCommand {
   }
 }
 
+class SqrtCommand {
+  constructor(valueToSubstract) {
+    this.valueToSubstract = valueToSubstract;
+  }
+
+  execute(currentValue) {
+    return (currentValue = Math.sqrt(this.valueToSubstract));
+  }
+
+  undo(currentValue) {
+    return (currentValue = this.valueToSubstract);
+  }
+}
+
+class CbrtCommand {
+  constructor(valueToSubstract) {
+    this.valueToSubstract = valueToSubstract;
+  }
+
+  execute(currentValue) {
+    return (currentValue = Math.cbrt(this.valueToSubstract));
+  }
+
+  undo(currentValue) {
+    return (currentValue = this.valueToSubstract);
+  }
+}
+
 export {
   Calculator,
   AddCommand,
   SubstractCommand,
   MultiplyCommand,
   DivideCommand,
+  SqrtCommand,
+  CbrtCommand,
 };

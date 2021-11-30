@@ -18,6 +18,8 @@ import {
   SubstractCommand,
   MultiplyCommand,
   DivideCommand,
+  SqrtCommand,
+  CbrtCommand,
 } from './classes.js';
 
 function getResult() {
@@ -81,17 +83,17 @@ function getResult() {
       // console.log(calc.previousOperand);
       arr[0] = calc.previousOperand;
       break;
-    case '-':
-      calc.executeCommand(new SubstractCommand(+arr[2]));
+    case '2√':
+      calc.executeCommand(new SqrtCommand(+arr[2]));
       // console.log(calc.previousOperand);
       arr[0] = calc.previousOperand;
       break;
-    case '-':
-      calc.executeCommand(new SubstractCommand(+arr[2]));
+    case '3√':
+      calc.executeCommand(new CbrtCommand(+arr[2]));
       // console.log(calc.previousOperand);
       arr[0] = calc.previousOperand;
       break;
-    case '-':
+    case '√':
       calc.executeCommand(new SubstractCommand(+arr[2]));
       // console.log(calc.previousOperand);
       arr[0] = calc.previousOperand;
