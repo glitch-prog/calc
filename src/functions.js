@@ -31,9 +31,6 @@ import {
   AgCommand,
 } from './classes.js';
 
-import { deleteStore, increaseStore, reduceStore } from './store__func.js';
-import { clear, clearAll } from './clear__ouput__func';
-
 function getResult() {
   let str = output.textContent;
   let arr = str.split(' ');
@@ -120,6 +117,17 @@ function getResult() {
   output.textContent = arr.splice(0, 1).join();
 }
 
+function clearAll() {
+  output.textContent = '';
+}
+
+function clear() {
+  output.textContent = output.textContent.slice(
+    0,
+    output.textContent.length - 1
+  );
+}
+
 function store(event) {
   switch (event.target.textContent) {
     case 'MS':
@@ -141,6 +149,24 @@ function store(event) {
   }
 }
 
+function deleteStore(something) {
+  localStorage.removeItem(something);
+}
 
+function increaseStore(something) {
+  let valueP = localStorage.getItem(something);
 
-export { getResult, store};
+  localStorage.setItem(something, +valueP + +output.textContent);
+}
+
+function reduceStore(something) {
+  let valueM = localStorage.getItem(something);
+  valueM = valueM - +output.textContent;
+  localStorage.setItem(something, valueM);
+}
+
+function factorial(n) {
+  return n ? n * factorial(n - 1) : 1;
+}
+
+export { getResult, store, clearAll, clear, factorial };

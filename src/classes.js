@@ -1,5 +1,4 @@
-import { getResult } from './functions.js';
-import { factorial } from './math__func';
+import { getResult, factorial } from './functions.js';
 import {
   main,
   funcs,

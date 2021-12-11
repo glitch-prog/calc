@@ -1,20 +1,25 @@
-.btns {
-  display: flex;
+button {
+  width: 140px;
+  height: 140px;
+  margin: 0;
+  font-size: 30px;
+  background: chocolate;
+  color: #fff;
 }
 
-.special__btns {
-  display: flex;
-  flex-direction: column;
+button:active {
+  background: coral;
 }
 
-.special__btns button {
-  height: 141px;
-  width: 80px;
+p {
+  padding-left: 20px;
+  font-size: 30px;
 }
 
-.wrap button,
-.nums button,
-.storage button {
-  width: 80px;
-  height: 80px;
+.do {
+  background: #e2d;
+}
+
+.do:active {
+  background: #129;
 }

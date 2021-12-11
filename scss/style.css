@@ -39,31 +39,29 @@ body {
           align-items: center;
 }
 
-.btns {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+button {
+  width: 140px;
+  height: 140px;
+  margin: 0;
+  font-size: 30px;
+  background: chocolate;
+  color: #fff;
 }
 
-.special__btns {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+button:active {
+  background: coral;
 }
 
-.special__btns button {
-  height: 141px;
-  width: 80px;
+p {
+  padding-left: 20px;
+  font-size: 30px;
 }
 
-.wrap button,
-.nums button,
-.storage button {
-  width: 80px;
-  height: 80px;
+.do {
+  background: #e2d;
+}
+
+.do:active {
+  background: #129;
 }
 /*# sourceMappingURL=style.css.map */

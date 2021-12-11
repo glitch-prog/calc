@@ -26,5 +26,4 @@ export {
   btnF,
   symbols,
   wrap,
-  
 };

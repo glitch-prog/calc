@@ -9,14 +9,7 @@ import {
   wrap,
   rez,
 } from './variables.js';
-import {
-  getResult,
-  store,
-  changeTheme,
-  clear,
-  clearAll,
-  
-} from './functions.js';
+import { getResult, store, changeTheme, clear, clearAll } from './functions.js';
 
 AC.addEventListener('click', (event) => {
   clearAll();
@@ -37,5 +30,3 @@ nums.addEventListener('click', (event) => {
 rez.addEventListener('click', (event) => {
   getResult();
 });
-
-
