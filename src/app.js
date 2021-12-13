@@ -9,7 +9,9 @@ import {
   wrap,
   rez,
 } from './variables.js';
-import { getResult, store, changeTheme, clear, clearAll } from './functions.js';
+import getResult from './functions/getResult';
+import clear from './functions/clear';
+import clearAll from './functions/clearAll';
 
 AC.addEventListener('click', (event) => {
   clearAll();
